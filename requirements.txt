@@ -1,3 +1,8 @@
 python-dotenv
 pandas
 numpy
+pymongo
+certifi
+
+## When you run pip install -e . (or include -e . in requirements.txt), it triggers setup.py (or pyproject.toml) and executes it to install your package in editable mode.
+##-e .
