@@ -1,2 +1,4 @@
 venv
+Artifacts
+logs
 .env
