@@ -48,7 +48,6 @@ class DataValidationConfig:
             training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR,
             training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME,
         )
-"""
 
 class DataTransformationConfig:
      def __init__(self,training_pipeline_config:TrainingPipelineConfig):
@@ -60,6 +59,7 @@ class DataTransformationConfig:
         self.transformed_object_file_path: str = os.path.join( self.data_transformation_dir, training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR,
             training_pipeline.PREPROCESSING_OBJECT_FILE_NAME,)
         
+"""
 class ModelTrainerConfig:
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         self.model_trainer_dir: str = os.path.join(

@@ -23,14 +23,21 @@ A basic ETL (Extract, Transform, Load) pipeline has been developed to manage the
 - **Transform**: Convert tabular data into JSON format suitable for database ingestion  
 - **Load**: Push the cleaned data into **MongoDB Atlas** for scalable cloud-based storage  
 
-Phase 1: Data Ingestion
+📥 Phase 1: Data Ingestion
 Modular ingestion system that:
 * **Data Retrieval**: Reads raw phishing data directly from MongoDB Atlas
 * **Local Backup**: Saves a copy of the raw data locally for version control and reproducibility
 * **Data Splitting**: Automatically splits the data into training and testing sets for downstream ML tasks
 
-Phase 2: Data Validation
+📊 Phase 2: Data Validation
 Modular validation system that:
 * **Schema Check**: Verifies that the number of columns in the raw data matches the expected structure defined in schema.yaml
-
 * **Data Drift Detection**: Automatically detects distribution shifts between training and testing datasets using a drift threshold of 0.05
+
+🧪 Phase 3: Data Transformation
+A structured transformation pipeline to prepare the data for machine learning:
+* **Target Normalization**: Converts the target values from `-1` to `0` to ensure consistency (`0` and `1` as binary labels)
+* **Missing Value Handling**: Uses **KNNImputer** to fill missing data based on feature similarity
+* **Pipeline Integration**: All transformation steps are wrapped in a pipeline for reusability and consistency
+* **Output Generation**: Saves the transformed training and testing data as NumPy `.npy` files for efficient storage and fast loading
+
