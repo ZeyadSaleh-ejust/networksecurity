@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/zizo/MLOPS/NetworkSecurity/mlruns/0/530280f980cf434e919aa03e0c102977/artifacts
+end_time: 1745304501603
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 530280f980cf434e919aa03e0c102977
+run_name: intrigued-vole-341
+run_uuid: 530280f980cf434e919aa03e0c102977
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745304498216
+status: 3
+tags: []
+user_id: User
