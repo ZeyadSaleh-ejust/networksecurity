@@ -39,8 +39,8 @@ def save_numpy_array_data(file_path: str, array: np.array):
             np.save(file_path,array)
     except Exception as e:
         raise NetworkSecurityException(e,sys)
-
-def save_object(file_path: str, obj: object) ->None:
+# save the specified object in the path 
+def save_object(file_path: str, obj: object) -> None:
     try:
         logging.info("Entered the save_object method of MainUtils Class")
         os.makedirs(os.path.dirname(file_path),exist_ok=True)
@@ -49,8 +49,9 @@ def save_object(file_path: str, obj: object) ->None:
         logging.info("Exited the save_object method of MainUtils class")
     except Exception as e:
         raise NetworkSecurityException(e,sys) from e
-    
-def load_object(file_path: str,) -> object:
+
+# Load the spcified path and return it as object
+def load_object(file_path: str,) -> object: 
     try:
          if not os.path.exists(file_path):
              raise Exception(f"The file: {file_path} is not exists")
@@ -76,16 +77,16 @@ def load_numpy_array_data(file_path: str) -> np.array:
 def evaluate_models(X_train, y_train,X_test,y_test,models,param):
     try:
         report = {}
-
+        # looping by models
         for i in range(len(list(models))):
-            model = list(models.values())[i]
-            para=param[list(models.keys())[i]]
+            model = list(models.values())[i] # choosing the model itself
+            para=param[list(models.keys())[i]] # for Specific model extract it's parameters
 
             gs = GridSearchCV(model,para,cv=3)
-            gs.fit(X_train,y_train)
+            gs.fit(X_train,y_train)  # fitting
 
-            model.set_params(**gs.best_params_)
-            model.fit(X_train,y_train)
+            model.set_params(**gs.best_params_)  # getting best parameters 
+            model.fit(X_train,y_train) # training the model using best hyperparameters
 
             #model.fit(X_train, y_train)  # Train model
 
@@ -97,7 +98,7 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
 
             test_model_score = r2_score(y_test, y_test_pred)
 
-            report[list(models.keys())[i]] = test_model_score
+            report[list(models.keys())[i]] = test_model_score # just returning a dict of "model name": {"r2_score for test data"}
 
         return report
 

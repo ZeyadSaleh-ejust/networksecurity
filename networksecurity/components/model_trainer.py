@@ -7,8 +7,6 @@ from networksecurity.logging.logger import logging
 from networksecurity.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact
 from networksecurity.entity.config_entity import ModelTrainerConfig
 
-
-
 from networksecurity.utils.ml_utils.model.estimator import NetworkModel
 from networksecurity.utils.main_utils.utils import save_object,load_object
 from networksecurity.utils.main_utils.utils import load_numpy_array_data,evaluate_models
@@ -119,25 +117,25 @@ class ModelTrainer:
             list(model_report.values()).index(best_model_score)
         ]
         best_model = models[best_model_name]
-        y_train_pred=best_model.predict(X_train)
 
+        # for training data
+        y_train_pred=best_model.predict(X_train)
         classification_train_metric=get_classification_score(y_true=y_train,y_pred=y_train_pred)
-        
-        ## Track the experiements with mlflow
         self.track_mlflow(best_model,classification_train_metric)
 
-
+        # for testing data
         y_test_pred=best_model.predict(x_test)
         classification_test_metric=get_classification_score(y_true=y_test,y_pred=y_test_pred)
-
         self.track_mlflow(best_model,classification_test_metric)
 
         preprocessor = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
-            
+
+        # making directory for the best model    
         model_dir_path = os.path.dirname(self.model_trainer_config.trained_model_file_path)
         os.makedirs(model_dir_path,exist_ok=True)
 
         Network_Model=NetworkModel(preprocessor=preprocessor,model=best_model)
+        # saving the best model as pickle file
         save_object(self.model_trainer_config.trained_model_file_path,obj=NetworkModel)
         #model pusher
         #save_object("final_model/model.pkl",best_model)

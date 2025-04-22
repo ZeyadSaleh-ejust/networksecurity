@@ -41,3 +41,5 @@ A structured transformation pipeline to prepare the data for machine learning:
 * **Pipeline Integration**: All transformation steps are wrapped in a pipeline for reusability and consistency
 * **Output Generation**: Saves the transformed training and testing data as NumPy `.npy` files for efficient storage and fast loading
 
+Phase 4: Model Trainer 
+

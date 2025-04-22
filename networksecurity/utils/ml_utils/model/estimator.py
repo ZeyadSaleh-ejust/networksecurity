@@ -1,5 +1,4 @@
 from networksecurity.constant.training_pipeline import SAVED_MODEL_DIR,MODEL_FILE_NAME
-
 import os
 import sys
 
@@ -14,7 +13,11 @@ class NetworkModel:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
     
-    def predict(self,x):
+    def predict(self,x): 
+        """
+        for the givien `data` apply that Transformation used by KNNImputer
+        and use the provided model to predict it
+        """
         try:
             x_transform = self.preprocessor.transform(x)
             y_hat = self.model.predict(x_transform)
