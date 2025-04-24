@@ -53,3 +53,37 @@ A robust training pipeline built for experimentation, optimization, and tracking
   - **Precision**: 0.979  
   - **F1 Score**: 0.984  
 
+🧠 **Phase 5: Model Deployment with FastAPI**
+After identifying the best-performing model, it was deployed using **FastAPI** to provide real-time phishing detection:
+
+- ✅ **Training Pipeline Execution**: Runs end-to-end pipeline from ingestion to model training
+- 🔮 **Prediction Endpoint**: Accepts new input data and returns the model's prediction
+- ⚙️ **Ready for Production**: Modular and scalable API design allows for easy containerization and cloud deployment
+
+
+
+## 🛠️ Setup & Usage
+
+### 🔧 Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 🏃‍♂️ Running the System
+
+1. **Start FastAPI server**:
+
+```bash
+uvicorn app:app --reload
+```
+
+2. **Access**:
+   - 📄 **API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+   - 🔮 **Prediction Endpoint**: `/predict`
+
+
+
+
