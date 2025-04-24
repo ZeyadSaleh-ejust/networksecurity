@@ -27,9 +27,11 @@ from urllib.parse import urlparse
 import dagshub
 dagshub.init(repo_owner='ZeyadSaleh-ejust', repo_name='networksecurity', mlflow=True)
 
-os.environ['MLFLOW_TRACKING_URI'] = "https://dagshub.com/ZeyadSaleh-ejust/networksecurity.mlflow"
-os.environ["MLFLOW_TRACKING_USERNAME"]="ZeyadSaleh-ejust"
-os.environ["MLFLOW_TRACKING_PASSWORD"]="0a814d4b710305469e1d136c3e175e425874d6af"
+from dotenv import load_dotenv 
+load_dotenv()
+os.environ['MLFLOW_TRACKING_URI'] = os.getenv("MLFLOW_TRACKING_URI1")
+os.environ["MLFLOW_TRACKING_USERNAME"]= os.getenv("MLFLOW_TRACKING_USERNAME1")
+os.environ["MLFLOW_TRACKING_PASSWORD"]= os.getenv("MLFLOW_TRACKING_PASSWORD1")
 
 
 

@@ -41,5 +41,15 @@ A structured transformation pipeline to prepare the data for machine learning:
 * **Pipeline Integration**: All transformation steps are wrapped in a pipeline for reusability and consistency
 * **Output Generation**: Saves the transformed training and testing data as NumPy `.npy` files for efficient storage and fast loading
 
-Phase 4: Model Trainer 
+🚀 **Phase 4: Model Training**  
+A robust training pipeline built for experimentation, optimization, and tracking:  
+* **Model Variety**: Evaluated multiple ML algorithms including  
+  `Random Forest`, `Decision Tree`, `Gradient Boosting`, `Logistic Regression`, and `AdaBoost`  
+* **Hyperparameter Tuning**: Employed **GridSearchCV** with 3-fold cross-validation to identify the best model configurations  
+* **Performance Metrics**: Assessed models using `F1 Score`, `Precision`, and `Recall` for balanced evaluation on imbalanced data  
+* **Experiment Tracking**: Integrated **MLflow** and **DagsHub** to track experiments, metrics, and parameters seamlessly  
+* **Results**: Best model achieved outstanding performance on the test set:  
+  - **Recall**: 0.988  
+  - **Precision**: 0.979  
+  - **F1 Score**: 0.984  
 
